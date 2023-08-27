@@ -92,7 +92,8 @@ javac -version
 ```
 <br>
 But, as of August 2023, Hadoop version 3.3.6 supports only Java 8 <a href="https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions">(check here)</a><br><br>
-![Image not found](https://github.com/chimms1/Hadoop-Install-Guide/blob/main/images/javaversion.png)
+
+![javaversion](https://github.com/chimms1/Hadoop-Install-Guide/assets/109859262/37328f6f-05f5-46fb-ab4b-0d11f9e8f162)
 
 * Now the procedure to install Java 8 will vary depending on your distribution. For example, on Ubuntu (<a href="https://ubuntu.com/tutorials/install-jre#2-installing-openjdk-jre">official guide</a>)
 ```bash
@@ -102,7 +103,7 @@ will get the job done. <br><br>
 
 But in my case, as I am using Debian 12 (Bookworm), let us check the <a href="https://wiki.debian.org/Java">official docs</a> for Java.
 
-![Image not found](https://github.com/chimms1/Hadoop-Install-Guide/blob/main/images/javadebian.png)
+![javadebian](https://github.com/chimms1/Hadoop-Install-Guide/assets/109859262/e421ba41-70bf-407c-90e6-9a66967ac4f3)
 
 It can be seen that the current default version is 17 whereas Java 8 was the default in Debian Stretch.<br>
 One way to solve this is to add a backports repository and then install it in Ubuntu way but I could not get that to work.<br><br>
@@ -112,7 +113,7 @@ So I settled for a hacky fix for this after referring to this <a href="https://s
 Go to the Eclipse Termurin Project website and choose OS type, Architecture, and Java version
 ```
 * <a href="https://adoptium.net/temurin/releases/?version=8&os=linux&arch=x64">https://adoptium.net/temurin/releases/?version=8&os=linux&arch=x64</a> and download both JDK and JRE.<br>
-![Image not found](https://github.com/chimms1/Hadoop-Install-Guide/blob/main/images/javaadoptium.png)<br>
+![javaadoptium](https://github.com/chimms1/Hadoop-Install-Guide/assets/109859262/47eeecf0-6917-4635-b8bc-757a082fff6a)<br>
 * Unpack the files to get folders, rename them to something sane, and then copy them to the desired location as these will act as JDK installation for us. Execute command for both jdk and jre folders.
 ```bash
 sudo cp <folder-name> /usr/lib/jvm/
@@ -321,7 +322,8 @@ If you get an error saying connection refused then as explained in this <a href=
 jps
 ```
 
-![Image not found](https://github.com/chimms1/Hadoop-Install-Guide/blob/main/images/jps.png)
+![jps](https://github.com/chimms1/Hadoop-Install-Guide/assets/109859262/b655aba9-901d-4bc9-bd84-f57096b1da90)
+
 
 * To stop the processes use:
 ```bash
