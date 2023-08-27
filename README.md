@@ -92,7 +92,7 @@ javac -version
 ```
 <br>
 But, as of August 2023, Hadoop version 3.3.6 supports only Java 8 <a href="https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions">(check here)</a><br><br>
-* Put image here <br><br>
+![Image not found](https://github.com/chimms1/Hadoop-Install-Guide/blob/main/images/javaversion.png)
 
 * Now the procedure to install Java 8 will vary depending on your distribution. For example, on Ubuntu (<a href="https://ubuntu.com/tutorials/install-jre#2-installing-openjdk-jre">official guide</a>)
 ```bash
@@ -102,7 +102,7 @@ will get the job done. <br><br>
 
 But in my case, as I am using Debian 12 (Bookworm), let us check the <a href="https://wiki.debian.org/Java">official docs</a> for Java.
 
-<br><br>Put image here<br><br>
+![Image not found](https://github.com/chimms1/Hadoop-Install-Guide/blob/main/images/javadebian.png)
 
 It can be seen that the current default version is 17 whereas Java 8 was the default in Debian Stretch.<br>
 One way to solve this is to add a backports repository and then install it in Ubuntu way but I could not get that to work.<br><br>
@@ -111,7 +111,8 @@ So I settled for a hacky fix for this after referring to this <a href="https://s
 ```bash
 Go to the Eclipse Termurin Project website and choose OS type, Architecture, and Java version
 ```
-* <a href="https://adoptium.net/temurin/releases/?version=8&os=linux&arch=x64">https://adoptium.net/temurin/releases/?version=8&os=linux&arch=x64</a> and download both JDK and JRE.
+* <a href="https://adoptium.net/temurin/releases/?version=8&os=linux&arch=x64">https://adoptium.net/temurin/releases/?version=8&os=linux&arch=x64</a> and download both JDK and JRE.<br>
+![Image not found](https://github.com/chimms1/Hadoop-Install-Guide/blob/main/images/javaadoptium.png)<br>
 * Unpack the files to get folders, rename them to something sane, and then copy them to the desired location as these will act as JDK installation for us. Execute command for both jdk and jre folders.
 ```bash
 sudo cp <folder-name> /usr/lib/jvm/
@@ -315,12 +316,12 @@ hdfs namenode -format
 If you get an error saying connection refused then as explained in this <a href="https://unix.stackexchange.com/questions/76722/pdsh-command-failed-with-connection-refused">answer</a>:
 * Add ```export PDSH_RCMD_TYPE=ssh``` in .bashrc file, reopen or source and try ```ssh localhost``` once again. If you reopen terminal then remember to switch to *hadoop user*.
 
-* Check the processed started with the *jps* command
+* Check the processes started with the *jps* command
 ```
 jps
 ```
 
-Insert image here
+![Image not found](https://github.com/chimms1/Hadoop-Install-Guide/blob/main/images/jps.png)
 
 * To stop the processes use:
 ```bash
