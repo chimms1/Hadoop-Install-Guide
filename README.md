@@ -65,7 +65,7 @@ If you find correct mistakes or would like to improve any part see <a href="#con
 * root privilege.
 * Internet connection.
 <br>
-I shall be using Debian 12 XFCE in a VM installed using VirtualBox.
+I shall be using Debian 12 XFCE in a VM installed using VirtualBox. You can use any distribution of your choice (Ubuntu, Linux Mint etc.)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -130,6 +130,8 @@ export PATH=$PATH:$JAVA_HOME/bin
 * reopen terminal or ``` source ~/.bashrc ```
 With this Java setup is complete.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Creating a new user.
 Generally, we create a separate user to run daemons as a security practice to isolate it from other user data.
 Hence we will create another user for Hadoop with no root privileges (or you can add that user to the sudo group if you wish to do so).
@@ -151,6 +153,9 @@ su - hduser
 whoami
 ```
 Note that your name in the terminal should be changed to ``` hduser@hostname ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Configure SSH
 * We will configure this for passwordless ssh login.<br>
 These commands should be executed from the *hadoopuser* which was created earlier.
@@ -172,6 +177,8 @@ ssh localhost
 ```
 * You may get a prompt asking to add this machine to known hosts. Answering 'yes' will accept the connection request and add localhost to the list of known hosts.<br>
 Note that this prompt appears only if there is a change in ssh configuration.<br>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Hadoop Setup
 * Download hadoop tar file from <a href="https://hadoop.apache.org/releases.html">official website</a>.
@@ -216,7 +223,7 @@ export PATH=$PATH:$JAVA_HOME/bin
 nano $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 ```
 * Scroll and find JAVA_HOME comment in *hadoop-env.sh*, uncomment and change to:
-```
+```bash
 export JAVA_HOME=/usr/lib/jvm/<myopenjdk-foldername>
 ```
 * Now we will add content in the configuration files of Hadoop. <a href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html">(Official Docs)</a>
@@ -305,6 +312,8 @@ hdfs namenode -format
 ```
 * While testing setup if you get any errors with datanode after changing any config file, You can delete /hadoopdata folder (losing the data) and reformat.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Start Hadoop Cluster
 * Navigate to ```~/hadoop/sbin``` . Execute commands from *hadoop user*.
 ```bash
@@ -336,6 +345,9 @@ or
 ```bash
 ./stop-all.sh
 ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Accessing Hadoop frontends
 * Hadoop NameNode: [http://localhost:9870/](http://localhost:9870/)
 * Cluster Information: [http://localhost:8042/](http://localhost:8042/)
