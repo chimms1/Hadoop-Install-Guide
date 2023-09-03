@@ -119,7 +119,7 @@ Go to the Eclipse Termurin Project website and choose OS type, Architecture, and
 sudo cp <folder-name> /usr/lib/jvm/
 ```
 * To find jdk folder, do ``` ls /usr/lib/jvm/ ```
-* The folder present here, either named by you or named something like java-1.17.0-openjdk-amd64 is your jdk folder.
+* The folder present here, either named by you or named something like java-1.xx-openjdk-amd64 is your jdk folder. (If you have more than java installations then choose the one for Java 8).
 * Open .bashrc using nano or gedit
 ```bash
 nano ~/.bashrc
