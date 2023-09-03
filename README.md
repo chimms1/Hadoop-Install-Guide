@@ -118,11 +118,14 @@ Go to the Eclipse Termurin Project website and choose OS type, Architecture, and
 ```bash
 sudo cp <folder-name> /usr/lib/jvm/
 ```
+* To find jdk folder, do ``` ls /usr/lib/jvm/ ```
+* The folder present here, either named by you or named something like java-1.17.0-openjdk-amd64 is your jdk folder.
 * Open .bashrc using nano or gedit
 ```bash
 nano ~/.bashrc
 ```
 * Add the following at the end of .bashrc (we will be doing this process once again later.)
+* __ENTER CORRECT FOLDER NAME__.
 ```bash
 export JAVA_HOME=/usr/lib/jvm/<myopenjdk-foldername>
 export PATH=$PATH:$JAVA_HOME/bin
@@ -214,6 +217,7 @@ export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
 export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
 ```
 * It is also time to add another variable after this. We will add JAVA_HOME to *hadoop user* which we had previously added to *main user*.
+* __ENTER CORRECT FOLDER NAME__.
 ```bash
 export JAVA_HOME=/usr/lib/jvm/<myopenjdk-foldername>
 export PATH=$PATH:$JAVA_HOME/bin
@@ -223,7 +227,7 @@ export PATH=$PATH:$JAVA_HOME/bin
 ```bash
 nano $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 ```
-* Scroll and find JAVA_HOME comment in *hadoop-env.sh*, uncomment and change to:
+* Scroll and find JAVA_HOME comment in *hadoop-env.sh*, uncomment and (__ENTER CORRECT FOLDER NAME__.) change to:
 ```bash
 export JAVA_HOME=/usr/lib/jvm/<myopenjdk-foldername>
 ```
@@ -294,6 +298,7 @@ nano $HADOOP_HOME/etc/hadoop/mapred-site.xml
 nano $HADOOP_HOME/etc/hadoop/yarn-site.xml
 ```
 ```xml
+<configuration>
 <property>
   <name>yarn.nodemanager.aux-services</name>
   <value>mapreduce_shuffle</value>
@@ -314,6 +319,7 @@ nano $HADOOP_HOME/etc/hadoop/yarn-site.xml
   <name>yarn.resourcemanager.address</name>
   <value>localhost:8050</value>
 </property>
+</configuration>
 ```
 
 * Now it is time to format the NameNode. It is necessary to format NameNode every time you change configuration files. <br>
@@ -336,8 +342,8 @@ hdfs namenode -format
 ./start-yarn.sh
 ```
 #### Error
-If you get an error saying connection refused then as explained in this <a href="https://unix.stackexchange.com/questions/76722/pdsh-command-failed-with-connection-refused">answer</a>:
-* Add ```export PDSH_RCMD_TYPE=ssh``` in .bashrc file, reopen or source and try ```ssh localhost``` once again. If you reopen terminal then remember to switch to *hadoop user*.
+If you get an error saying connection refused or permission denied then as explained in this <a href="https://unix.stackexchange.com/questions/76722/pdsh-command-failed-with-connection-refused">answer</a>:
+* Add ```export PDSH_RCMD_TYPE=ssh``` in .bashrc file, reopen or source and try once again. If you reopen terminal then remember to switch to *hadoop user*.
 
 * Check the processes started with the *jps* command
 ```
