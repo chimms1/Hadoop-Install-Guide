@@ -183,6 +183,7 @@ Note that this prompt appears only if there is a change in ssh configuration.<br
 ## Hadoop Setup
 * Download hadoop tar file from <a href="https://hadoop.apache.org/releases.html">official website</a>.
 * I have downloaded version 3.3.6 which is the latest stable version as of August 2023.
+* __Make sure to download the binary (~690 MB) and not the source, *unless you wish to compile hadoop from scratch*__
 * Open the file manager and extract the tar file present in the Downloads folder.
 * Now it is time to move the hadoop folder to the hduser home directory. Execute commands from *main user*
 ```bash
